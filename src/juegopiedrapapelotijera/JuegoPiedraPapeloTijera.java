@@ -11,10 +11,7 @@ import java.util.Scanner;
 public class JuegoPiedraPapeloTijera {
     static int PuntJug=0, PuntPC=0;
     public static void main(String[] args) {
-        for (int i = 0; i < 10; i++) {
-            Game();   
-        }
-     
+     Game();
     }
     public static void Game(){
         int JugElecc;
@@ -58,6 +55,21 @@ public class JuegoPiedraPapeloTijera {
         } else if (JugElecc==3 && PCElecc==3){
             System.out.println("Empate\nJugador: Tijera\nPC: Tijera");
             System.out.println("-- Puntuación --\nJugador: "+PuntJug+"\nPC: "+PuntPC);
+        }
+        ContinuarGame();
+    }
+    public static void ContinuarGame(){
+        String continuaG;
+        Scanner seguir = new Scanner(System.in);
+        System.out.println("¿Deseas seguir jugando?(s/n)");
+        continuaG = seguir.nextLine();
+        if(continuaG.equalsIgnoreCase("s")){
+            Game();
+        } else if(continuaG.equalsIgnoreCase("n")){
+            System.out.println("\n\tAdios :)");
+            System.exit(0);
+        } else {
+            ContinuarGame();
         }
     }
 }
